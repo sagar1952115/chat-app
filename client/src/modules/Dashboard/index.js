@@ -135,10 +135,10 @@ const Dashboard = () => {
           <div className="text-lg text-primary">Messages</div>
           <div>
             {conversations.length > 0 ? (
-              conversations.map(({ conversationId, user }) => {
+              conversations.map(({ i, conversationId, user }) => {
                 return (
                   <div
-                    key={conversationId}
+                    key={i}
                     className="flex items-center py-8 border-b border-b-gray-300"
                   >
                     <div
@@ -293,10 +293,10 @@ const Dashboard = () => {
         <div className="text-lg text-primary">People</div>
         <div>
           {users.length > 0 ? (
-            users.map(({ userId, user }) => {
+            users.map(({ user, i }) => {
               return (
                 <div
-                  key={userId}
+                  key={i}
                   className="flex items-center py-8 border-b border-b-gray-300"
                 >
                   <div
