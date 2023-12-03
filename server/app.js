@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const cors = require("cors");
 const io = require("socket.io")(8080, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://yomessenger.onrender.com/",
   },
 });
 
@@ -137,16 +137,14 @@ app.post("/api/login", async (req, res, next) => {
                 }
               );
               user.save();
-              return res
-                .status(200)
-                .json({
-                  user: {
-                    id: user._id,
-                    email: user.email,
-                    fullName: user.fullName,
-                  },
-                  token: token,
-                });
+              return res.status(200).json({
+                user: {
+                  id: user._id,
+                  email: user.email,
+                  fullName: user.fullName,
+                },
+                token: token,
+              });
             }
           );
         }
