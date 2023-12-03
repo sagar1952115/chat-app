@@ -137,7 +137,10 @@ const Dashboard = () => {
             {conversations.length > 0 ? (
               conversations.map(({ conversationId, user }) => {
                 return (
-                  <div className="flex items-center py-8 border-b border-b-gray-300">
+                  <div
+                    key={conversationId}
+                    className="flex items-center py-8 border-b border-b-gray-300"
+                  >
                     <div
                       className="flex items-center cursor-pointer"
                       onClick={() => fetchMessages(conversationId, user)}
@@ -204,10 +207,11 @@ const Dashboard = () => {
         <div className="h-[75%] w-full overflow-scroll shadow-sm">
           <div className="p-14">
             {messages?.messages?.length > 0 ? (
-              messages.messages.map(({ message, user: { id } = {} }) => {
+              messages.messages.map(({ message, user: { id } = {}, i }) => {
                 return (
                   <>
                     <div
+                      key={i}
                       className={`max-w-[40%] rounded-b-xl p-4 mb-6 ${
                         id === user?.id
                           ? "bg-primary text-white rounded-tl-xl ml-auto"
@@ -291,7 +295,10 @@ const Dashboard = () => {
           {users.length > 0 ? (
             users.map(({ userId, user }) => {
               return (
-                <div className="flex items-center py-8 border-b border-b-gray-300">
+                <div
+                  key={userId}
+                  className="flex items-center py-8 border-b border-b-gray-300"
+                >
                   <div
                     className="flex items-center cursor-pointer"
                     onClick={() => fetchMessages("new", user)}

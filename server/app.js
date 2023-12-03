@@ -2,7 +2,7 @@ const express = require("express");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
-const io = require("socket.io")(8080, {
+const io = require("socket.io")({
   cors: {
     origin: "https://yomessenger.onrender.com/",
   },
